@@ -1,4 +1,4 @@
-#SRCDS Prometheus exporter
+# SRCDS Prometheus exporter
 
 Works (or should work) with the following servers :
 
@@ -11,18 +11,18 @@ Works (or should work) with the following servers :
     * TF2
     * HL2DM
 
-##How to install
+## How to install
 
-###Method 1 : Download sources and run
+### Method 1 : Download sources and run
 
 1. Download the repo (using git clone or direct zip download)
 2. Start the script with node : `node index.js`, you can create a service or run it in a screen to keep it active in background
 
-###Method 2 : With docker
+### Method 2 : With docker
 
 `docker run -d -p <external port>:9591 --name srcds_exporter srcds_exporter:latest`
 
-##Configure Prometheus
+## Configure Prometheus
 
 Add the following configuration to Prometheus static configuration :
 
@@ -51,19 +51,20 @@ Add the following configuration to Prometheus static configuration :
         replacement: <IP>:<port> # Real exporter's IP:Port
 ```
 
-##How to access
+## How to access
 
 If you want to see what the exporter returns, you can access :
  
  `http://<ip>:9591/metrics?ip=<srcds ip>&?port=<srcds port>&?password=<rcon password>`
  
-##Grafana dashboard
+## Grafana dashboard
 
 Is there a Grafana dashboard available ? Of course!
+
 https://grafana.com/grafana/dashboards/11333
 
 
-###Support
+### Support
 
 If you encounter any issue, feel free to open an issue.
 If you want to contact me :
