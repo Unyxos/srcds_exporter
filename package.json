@@ -1,0 +1,25 @@
+{
+  "name": "srcds-exporter",
+  "version": "0.0.1",
+  "description": "Prometheus Exporter for SRCDS game servers such as CSGO",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Unyxos/srcds-exporter.git"
+  },
+  "author": "Corentin Closs <me@corentincloss.fr>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Unyxos/srcds-exporter/issues"
+  },
+  "homepage": "https://github.com/Unyxos/srcds-exporter#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "prom-client": "^11.5.3",
+    "srcds-rcon": "^2.2.1",
+    "working-rcon": "^0.2.8"
+  }
+}
