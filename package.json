@@ -1,6 +1,6 @@
 {
   "name": "srcds-exporter",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Prometheus Exporter for SRCDS game servers such as CSGO",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,6 @@
     "prom-client": "^11.5.3",
     "srcds-rcon": "^2.2.1",
     "working-rcon": "^0.2.8"
-  }
+  },
+  "devDependencies": {}
 }
