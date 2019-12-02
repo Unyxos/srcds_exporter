@@ -22,7 +22,6 @@ async function getStats(ip, port, password) {
     }
     return result;
 }
-
 const status = new Gauge({name: "srcds_status", help: "The server's status, 0 = offline/bad password, 1 = online"});
 const cpu = new Gauge({name: "srcds_cpu", help: "Probably the priority level of the srcds executable from an operating system point of view (0 - No priority, 10 - biggest priority)"});
 const netin = new Gauge({name: "srcds_netin", help: "Incoming bandwidth, in kbps, received by the server"});
@@ -43,6 +42,8 @@ app.get('/metrics', (req, res) => {
     if (ip == null || port == null || password == null){
         res.send("Missing parameter, either IP, port or RCON password");
     } else {
+        const defaultLabels = { server: ip+':'+port };
+        prometheus.register.setDefaultLabels(defaultLabels);
         getStats(ip, port, password).then(result => {
             var resultArray = result.split(/\r?\n/);
             resultArray.pop();
