@@ -55,7 +55,7 @@ Add the following configuration to Prometheus static configuration :
 
 If you want to see what the exporter returns, you can access :
  
- `http://<ip>:9591/metrics?ip=<srcds ip>&?port=<srcds port>&?password=<rcon password>`
+ `http://<ip>:9591/metrics?ip=<srcds ip>&port=<srcds port>&password=<rcon password>`
  
 ## Grafana dashboard
 
