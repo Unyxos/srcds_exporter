@@ -15,8 +15,11 @@ Works (or should work) with the following servers :
 
 ### Method 1 : Download sources and run
 
+You need to have NodeJS installed if you want to run the sources, NVM (Node Version Manager) is a simple tool to get it running : https://github.com/nvm-sh/nvm
+
 1. Download the repo (using git clone or direct zip download)
-2. Start the script with node : `node index.js`, you can create a service or run it in a screen to keep it active in background
+2. Enter the srcds_exporter directory and run `npm i`, this will install all required dependencies
+3. Start the script with node : `node index.js`, you can create a service or run it in a screen to keep it active in background
 
 ### Method 2 : With docker
 
