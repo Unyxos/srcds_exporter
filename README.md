@@ -7,7 +7,7 @@ Works (or should work) with the following servers :
 * Not tested :
     * CSS
     * L4D2
-    * GMod
+    * GMod (Not working, will fix later)
     * TF2
     * HL2DM
 
