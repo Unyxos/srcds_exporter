@@ -73,5 +73,5 @@ If you encounter any issue, feel free to open an issue.
 If you want to contact me :
 
 * Twitter : [@Unyxos](https://twitter.com/Unyxos)
-* Discord : Unyxos#5968
+* Discord : Unyxos#1337
 * Email : [me@corentincloss.fr](mailto://me@corentincloss.fr)
