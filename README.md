@@ -23,7 +23,7 @@ You need to have NodeJS installed if you want to run the sources, NVM (Node Vers
 
 ### Method 2 : With docker
 
-`docker run -d -p <external port>:9591 --name srcds_exporter srcds_exporter:latest`
+`docker run -d -p <external port>:9591 --name srcds_exporter corentincl/srcds_exporter:latest`
 
 ## Configure Prometheus
 
