@@ -2,12 +2,12 @@
 
 Works (or should work) with the following servers :
 
-* Tested :
-    * CSGO (tested)
-* Not tested :
+* Working :
+    * CSGO
+    * GMod
+* Not working (I'm planning on adding them in the near future) :
     * CSS
     * L4D2
-    * GMod (Not working, will fix later)
     * TF2
     * HL2DM
 
@@ -32,39 +32,52 @@ Add the following configuration to Prometheus static configuration :
 ```
 - job_name: 'srcds'
     static_configs:
-      - targets: ["<ip>:<port>:<rconpassword>"]
+      - targets: ["<ip>:<port>:<rconpassword>:<game>"]
 
 
     relabel_configs:
       - source_labels: [__address__]
-        regex: "(.+):.+:.+"
+        regex: "(.+):.+:.+:.+"
         replacement: "$1"
         target_label: __param_ip
       - source_labels: [__address__]
-        regex: ".+:(.+):.+"
+        regex: ".+:(.+):.+:.+"
         replacement: "$1"
         target_label: __param_port
       - source_labels: [__address__]
-        regex: ".+:.+:(.+)"
+        regex: ".+:.+:(.+):.+"
         replacement: "$1"
         target_label: __param_password
+      - source_labels: [__address__]
+        regex: ".+:.+:.+:(.+)"
+        replacement: "$1"
+        target_label: __param_game
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
         replacement: <IP>:<port> # Real exporter's IP:Port
 ```
 
+Values for `game` field :
+
+| Game   |      Value      |
+|:----------:|:-------------:|
+| CS:GO |  csgo |
+| Garry's Mod |    gmod   |
+
 ## How to access
 
 If you want to see what the exporter returns, you can access :
  
- `http://<ip>:9591/metrics?ip=<srcds ip>&port=<srcds port>&password=<rcon password>`
+ `http://<ip>:9591/metrics?ip=<srcds ip>&port=<srcds port>&password=<rcon password>&game=<game>`
  
 ## Grafana dashboard
 
 Is there a Grafana dashboard available ? Of course!
 
-https://grafana.com/grafana/dashboards/11333
+**CSGO** : https://grafana.com/grafana/dashboards/11333
+
+**GMod** : Coming
 
 
 ### Support
