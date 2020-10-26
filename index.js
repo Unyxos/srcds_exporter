@@ -41,21 +41,19 @@ async function getStats(ip, port, password, game) {
         await client.disconnect();
         result = stats;
     } catch (err) {
-        if (err instanceof TimeoutError) {
-            console.error('request timed out')
-        } else {
-            throw err
-        }
+        if (err instanceof TimeoutError)
+            console.error('request timed out');
+        else
+            throw err;
     }
+    var resultArray = result.split(/\r?\n/);
     if (game === "csgo"){
-        var resultArray = result.split(/\r?\n/);
         resultArray.pop();
         resultArray.shift();
         var finalArray = resultArray[0].split(/\s+/);
         finalArray.shift();
         return finalArray;
     } else if (game === "gmod") {
-        var resultArray = result.split(/\r?\n/);
         resultArray.shift();
         var finalArray = resultArray[0].split(/\s+/);
         return finalArray;
@@ -94,12 +92,11 @@ app.get('/metrics', (req, res) => {
     } else {
         if (game === "csgo" || game === "gmod"){
             getStats(ip, port, password, game, res).then(result => {
+                const defaultLabels = { server: ip+':'+port, game: game };
                 if (game === "csgo"){
-                    const defaultLabels = { server: ip+':'+port, game: game };
                     csgoRegistry.setDefaultLabels(defaultLabels);
                     csgoRequest(result, res);
                 } else if (game === "gmod"){
-                    const defaultLabels = { server: ip+':'+port, game: game };
                     gmodRegistry.setDefaultLabels(defaultLabels);
                     gmodRequest(result, res);
                 }
