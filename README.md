@@ -28,34 +28,16 @@ You need to have NodeJS installed if you want to run the sources, NVM (Node Vers
 ## Configure Prometheus
 
 Add the following configuration to Prometheus static configuration :
-
 ```
-- job_name: 'srcds'
+- job_name: srcds
+    params:
+      ip: ['<srcds ip>']
+      port: ['<srcds port>']
+      password: ['<rcon password>']
+      game: ['<game>']
     static_configs:
-      - targets: ["<ip>:<port>:<rconpassword>:<game>"]
-
-
-    relabel_configs:
-      - source_labels: [__address__]
-        regex: "(.+):.+:.+:.+"
-        replacement: "$1"
-        target_label: __param_ip
-      - source_labels: [__address__]
-        regex: ".+:(.+):.+:.+"
-        replacement: "$1"
-        target_label: __param_port
-      - source_labels: [__address__]
-        regex: ".+:.+:(.+):.+"
-        replacement: "$1"
-        target_label: __param_password
-      - source_labels: [__address__]
-        regex: ".+:.+:.+:(.+)"
-        replacement: "$1"
-        target_label: __param_game
-      - source_labels: [__param_target]
-        target_label: instance
-      - target_label: __address__
-        replacement: <IP>:<port> # Real exporter's IP:Port
+      - targets:
+          - '<exporter ip>:<exporter port>'
 ```
 
 Values for `game` field :
