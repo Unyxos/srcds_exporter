@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SRCDS Exporter</title>
+</head>
+<body>
+    <form action="metrics">
+        <label for="ip">Address:</label>
+        <input required id="ip" name="ip" type="text"><br />
+        <label for="port">Port:</label>
+        <input required id="port" name="port" type="number"><br />
+        <label for="password">Password:</label>
+        <input required id="password" name="password" type="text"><br />
+        <label for="game">Game:</label>
+        <select id="game" name="game">
+            <option value="">--Please choose a game--</option>
+            <option value="csgo">csgo</option>
+            <option value="css">css</option>
+            <option value="gmod">gmod</option>
+            <option value="hl2">hl2</option>
+            <option value="l4d2">l4d2</option>
+            <option value="tf2">tf2</option>
+        </select><br />
+        <input type="submit" value="Go to metrics page">
+    </form>
+</body>
+</html>

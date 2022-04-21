@@ -1,19 +1,29 @@
 # SRCDS Prometheus exporter
-
-Works (or should work) with the following servers :
-
-* Working :
-    * CSGO
-    * GMod
-* Not working (I'm planning on adding them in the near future) :
-    * CSS
-    * L4D2
-    * TF2
-    * HL2DM
+### The goal of this project is to provide a simple way to get metrics from various Source dedicated servers and expose them in Grafana.
+<p align="center">
+    <img src="./images/csgo.png" height="80">
+    <img src="./images/css.png" height="80">
+    <img src="./images/gmod.png" height="80">
+    <img src="./images/hl2.png" height="80">
+    <img src="./images/l4d2.png" height="80">
+    <img src="./images/tf2.png" height="80">
+</p>
+<p align="center">
+  <img src="https://img.shields.io/github/stars/unyxos/srcds_exporter?style=social">
+  <a href="https://hub.docker.com/corentincl/srcds_exporter" alt="Activity">
+    <img src="https://img.shields.io/docker/pulls/corentincl/srcds_exporter?logo=docker"/>
+  </a>
+  <img src="https://img.shields.io/docker/v/corentincl/srcds_exporter?logo=docker&sort=semver">
+  <img src="https://img.shields.io/docker/image-size/corentincl/srcds_exporter/latest?logo=docker">
+  <img src="https://img.shields.io/docker/stars/corentincl/srcds_exporter?logo=docker">
+</p>
 
 ## How to install
 
-### Method 1 : Download sources and run
+### Method 1 : With docker
+`docker run -d -p <external port>:9591 --name srcds_exporter --restart=always corentincl/srcds_exporter`
+
+### Method 2 : Download sources and run
 
 You need to have NodeJS installed if you want to run the sources, NVM (Node Version Manager) is a simple tool to get it running : https://github.com/nvm-sh/nvm
 
@@ -21,9 +31,7 @@ You need to have NodeJS installed if you want to run the sources, NVM (Node Vers
 2. Enter the srcds_exporter directory and run `npm i`, this will install all required dependencies
 3. Start the script with node : `node index.js`, you can create a service or run it in a screen to keep it active in background
 
-### Method 2 : With docker
-
-`docker run -d -p <external port>:9591 --name srcds_exporter corentincl/srcds_exporter:latest`
+By default, the exporter runs on port 9591, it's possible to customize this by setting the HTTP_PORT variable to the desired port.
 
 ## Configure Prometheus
 
@@ -62,22 +70,35 @@ Values for `game` field :
 
 | Game   |      Value      |
 |:----------:|:-------------:|
-| CS:GO |  csgo |
+| Counter Strike: Global Offensive |  csgo |
+| Counter Strike: Source |    css   |
 | Garry's Mod |    gmod   |
+| Half Life 2 DM |    hl2   |
+| Left 4 Dead 2 |    l4d2   |
+| Team Fortress 2 |    tf2   |
 
 ## How to access
 
 If you want to see what the exporter returns, you can access :
- 
+
  `http://<ip>:9591/metrics?ip=<srcds ip>&port=<srcds port>&password=<rcon password>&game=<game>`
- 
-## Grafana dashboard
+
+## Grafana dashboards
 
 Is there a Grafana dashboard available ? Of course!
+You can have a "global" dashboard with all the servers you want to monitor (status, CPU, netin/out) and a "per server" dashboard with all the metrics you want to monitor (players, users, etc.)
 
-**CSGO** : https://grafana.com/grafana/dashboards/11333
+**Counter Strike: Global Offensive** : https://grafana.com/grafana/dashboards/11333
 
-**GMod** : Coming
+**Counter Strike: Source** : Coming
+
+**Garry's Mod** : Coming
+
+**Half Life 2** : Coming
+
+**Left 4 Dead 2** : Coming
+
+**Team Fortress 2** : Coming
 
 
 ### Support
@@ -86,5 +107,4 @@ If you encounter any issue, feel free to open an issue.
 If you want to contact me :
 
 * Twitter : [@Unyxos](https://twitter.com/Unyxos)
-* Discord : Unyxos#1337
 * Email : [me@corentincloss.fr](mailto://me@corentincloss.fr)

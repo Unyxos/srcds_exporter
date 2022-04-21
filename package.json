@@ -1,7 +1,7 @@
 {
   "name": "srcds-exporter",
-  "version": "1.0.0",
-  "description": "Prometheus Exporter for SRCDS game servers such as CSGO",
+  "version": "2.0.0",
+  "description": "Prometheus Exporter for SRCDS game servers such as CSGO, GMod...",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,10 +17,14 @@
   },
   "homepage": "https://github.com/Unyxos/srcds-exporter#readme",
   "dependencies": {
+    "@unyxos/working-rcon": "^0.2.10",
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
-    "prom-client": "^11.5.3",
-    "srcds-rcon": "^2.2.1",
-    "working-rcon": "^0.2.8"
-  },
-  "devDependencies": {}
+    "express-basic-auth": "^1.2.1",
+    "express-joi-validation": "^5.0.1",
+    "joi": "^17.6.0",
+    "pino": "^7.9.2",
+    "pino-pretty": "^7.6.0",
+    "prom-client": "^11.5.3"
+  }
 }
