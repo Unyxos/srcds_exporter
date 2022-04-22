@@ -14,6 +14,7 @@ const formatRconResult = function (result) {
     status = {
         hostname: infosArray[0].split(': ')[1],
         version: infosArray[1].split(': ')[1].split('/')[0],
+        map: infosArray[4].split(': ')[1].split(' ')[0],
     }
 
     return {
@@ -30,6 +31,7 @@ const setMetrics = function (result, reqInfos) {
         game: reqInfos.game,
         version: status.version,
         hostname: status.hostname,
+        map: status.map,
     };
     cssRegistry.setDefaultLabels(defaultLabels);
 
