@@ -27,19 +27,18 @@ app.get('/metrics', validator.query(metricsParamsSchema), async (req, res) => {
     const { ip, port, password, game } = req.query;
 
     try {
-        const client = await connect(ip, port, password, 5000);
+        const client = await connect(ip, port, password, 5 * 1000);
 
         const status = await client.command('status');
         const stats = await client.command('stats');
 
         await client.disconnect();
-
         const response = games[game].setMetrics({ stats, status }, { ip, port, game });
 
         res.end(response);
     } catch (err) {
+        logger.error({ step: 'FETCH_METRICS', err: err.message }, 'error while fetching metrics from server');
         const response = games[game].setNoMetrics({ ip, port, game });
-
         res.end(response);
     }
 });

@@ -85,21 +85,7 @@ If you want to see what the exporter returns, you can access :
 
 ## Grafana dashboards
 
-Is there a Grafana dashboard available ? Of course!
-You can have a "global" dashboard with all the servers you want to monitor (status, CPU, netin/out) and a "per server" dashboard with all the metrics you want to monitor (players, users, etc.)
-
-**Counter Strike: Global Offensive** : https://grafana.com/grafana/dashboards/11333
-
-**Counter Strike: Source** : Coming
-
-**Garry's Mod** : Coming
-
-**Half Life 2** : Coming
-
-**Left 4 Dead 2** : Coming
-
-**Team Fortress 2** : Coming
-
+Grafana dashboards are being revamped and should be available soon!
 
 ### Support
 
