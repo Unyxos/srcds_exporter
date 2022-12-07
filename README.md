@@ -10,7 +10,7 @@
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/stars/unyxos/srcds_exporter?style=social">
-  <a href="https://hub.docker.com/corentincl/srcds_exporter" alt="Activity">
+  <a href="https://hub.docker.com/repository/docker/corentincl/srcds_exporter" alt="Activity">
     <img src="https://img.shields.io/docker/pulls/corentincl/srcds_exporter?logo=docker"/>
   </a>
   <img src="https://img.shields.io/docker/v/corentincl/srcds_exporter?logo=docker&sort=semver">
