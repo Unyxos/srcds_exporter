@@ -1,3 +1,6 @@
+# CS2 Support
+**I can't tell if CS2 will be supported directly through the csgo config or if a new one will be needed, I'll need to have access to it and for Valve to release CS2 dedicated servers for everybody**
+
 # SRCDS Prometheus exporter
 ### The goal of this project is to provide a simple way to get metrics from various Source dedicated servers and expose them in Grafana.
 <p align="center">
@@ -10,7 +13,7 @@
 </p>
 <p align="center">
   <img src="https://img.shields.io/github/stars/unyxos/srcds_exporter?style=social">
-  <a href="https://hub.docker.com/repository/docker/corentincl/srcds_exporter" alt="Activity">
+  <a href="https://hub.docker.com/r/corentincl/srcds_exporter" alt="Activity">
     <img src="https://img.shields.io/docker/pulls/corentincl/srcds_exporter?logo=docker"/>
   </a>
   <img src="https://img.shields.io/docker/v/corentincl/srcds_exporter?logo=docker&sort=semver">
@@ -32,6 +35,12 @@ You need to have NodeJS installed if you want to run the sources, NVM (Node Vers
 3. Start the script with node : `node index.js`, you can create a service or run it in a screen to keep it active in background
 
 By default, the exporter runs on port 9591, it's possible to customize this by setting the HTTP_PORT variable to the desired port.
+
+## Configure the game's server
+
+1. Make sure to configure a rcon password
+
+2. Add `-usercon` to your srcds start parameters, otherwise rcon connection cannot be done from "outside" of the game/server's console, resulting in the exporter showing 0 for all metrics
 
 ## Configure Prometheus
 
